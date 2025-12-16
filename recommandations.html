@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Recommandations – SmartSport Tour</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background-color: #0b1020;
+            color: #f5f5f5;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .navbar {
+            background: rgba(5, 10, 30, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .page-header {
+            padding-top: 90px;
+            padding-bottom: 30px;
+            background: radial-gradient(circle at top, #1a2a6c, #0b1020 55%);
+        }
+
+        .section-title {
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        .badge-event {
+            background: linear-gradient(90deg, #ffb347, #ffcc33);
+            color: #1b1b1b;
+            font-weight: 600;
+        }
+
+        .card-soft {
+            background: #151a2e;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5);
+        }
+
+        .pill {
+            border-radius: 999px;
+            padding: 0.15rem 0.65rem;
+            font-size: 0.78rem;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            color: #e5e7eb;
+        }
+
+        footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.25);
+            background: #050816;
+            color: #9ca3af;
+        }
+
+        label {
+            font-size: 0.85rem;
+            color: #cbd5f5;
+        }
+
+        select,
+        .form-select {
+            background-color: #020617;
+            color: #e5e7eb;
+            border-color: #1f2937;
+        }
+
+        select:focus,
+        .form-select:focus {
+            background-color: #020617;
+            color: #e5e7eb;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 0.25rem rgba(59, 130, 246, 0.25);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="index.html">
+                SmartSport <span class="text-primary">Tour</span>
+            </a>
+            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon">
+                    <span class="text-light">≡</span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="index.html#features">Fonctionnalités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light active" href="recommandations.html">Recommandations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- En-tête page -->
+    <header class="page-header">
+        <div class="container">
+            <span class="badge badge-event mb-3">
+                Expérience personnalisée pour les grands événements sportifs
+            </span>
+            <h1 class="section-title mb-2">Recommandations SmartSport Tour</h1>
+            <p class="text-secondary mb-0">
+                Choisis ton profil de supporter et découvre un exemple de recommandations
+                “intelligentes” d’hôtels, restaurants et itinéraires vers les stades.
+            </p>
+        </div>
+    </header>
+
+    <!-- Formulaire "fake IA" -->
+    <section class="py-4">
+        <div class="container">
+            <div class="card-soft p-4 mb-4">
+                <h5 class="mb-3">Paramètres de ton séjour (prototype)</h5>
+                <form id="form-reco" class="row g-3">
+                    <div class="col-md-4">
+                        <label for="ville" class="form-label">Ville hôte</label>
+                        <select id="ville" class="form-select">
+                            <option value="casablanca" selected>Casablanca</option>
+                            <option value="rabat">Rabat</option>
+                            <option value="marrakech">Marrakech</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="budget" class="form-label">Budget</label>
+                        <select id="budget" class="form-select">
+                            <option value="eco">Économique</option>
+                            <option value="moyen" selected>Moyen</option>
+                            <option value="eleve">Élevé / Premium</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="type" class="form-label">Type de supporter</label>
+                        <select id="type" class="form-select">
+                            <option value="solo">Solo</option>
+                            <option value="amis" selected>Groupe d’amis</option>
+                            <option value="famille">Famille</option>
+                        </select>
+                    </div>
+                    <div class="col-12 d-flex justify-content-end mt-2">
+                        <button type="button" id="btn-generate" class="btn btn-primary">
+                            Générer les recommandations
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenu recommandations -->
+    <main class="pb-5">
+        <div class="container">
+            <!-- Profil dynamique -->
+            <div class="card-soft p-4 mb-4">
+                <h5 class="mb-3">Profil supporter (généré)</h5>
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <div class="text-secondary small mb-1">Type de voyage</div>
+                        <div class="fw-semibold" id="profil-type">Groupe d’amis</div>
+                        <div class="small text-success" id="profil-duree">Séjour 3–5 jours</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-secondary small mb-1">Budget</div>
+                        <div class="fw-semibold" id="profil-budget">Moyen</div>
+                        <div class="small text-primary" id="profil-budget-note">Équilibre qualité / prix</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-secondary small mb-1">Centres d’intérêt</div>
+                        <div class="fw-semibold" id="profil-interets">Football, culture locale</div>
+                        <div class="small text-secondary" id="profil-plus">Sorties, gastronomie</div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-secondary small mb-1">Ville sélectionnée</div>
+                        <div class="fw-semibold" id="profil-ville">Casablanca</div>
+                        <div class="small text-secondary" id="profil-stade">Proche du Stade International</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Hôtels -->
+                <div class="col-lg-4">
+                    <div class="card-soft p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="mb-0">Hôtels recommandés</h5>
+                            <span class="pill" id="hotels-pill">3 options sélectionnées</span>
+                        </div>
+                        <p class="small text-secondary mb-3" id="hotels-intro">
+                            Hôtels adaptés à ton budget et situés à une distance raisonnable du stade
+                            et du centre-ville.
+                        </p>
+                        <ul class="list-unstyled small mb-0" id="hotels-list">
+                            <!-- Rempli dynamiquement -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Restaurants -->
+                <div class="col-lg-4">
+                    <div class="card-soft p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="mb-0">Restaurants recommandés</h5>
+                            <span class="pill" id="restos-pill">Cuisine locale & rapide</span>
+                        </div>
+                        <p class="small text-secondary mb-3" id="restos-intro">
+                            Sélection de restaurants à proximité du centre-ville et sur la route vers le stade.
+                        </p>
+                        <ul class="list-unstyled small mb-0" id="restos-list">
+                            <!-- Rempli dynamiquement -->
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Transport & itinéraire -->
+                <div class="col-lg-4">
+                    <div class="card-soft p-4 h-100">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="mb-0">Transport & itinéraires</h5>
+                            <span class="pill" id="transport-pill">Trajet optimisé</span>
+                        </div>
+                        <p class="small text-secondary mb-3" id="transport-intro">
+                            Exemple de parcours depuis ton hôtel jusqu’au stade principal de la ville.
+                        </p>
+                        <ol class="small text-secondary mb-3" id="transport-steps">
+                            <!-- Rempli dynamiquement -->
+                        </ol>
+                        <div class="small text-secondary">
+                            Dans la vraie version, un clic ouvrirait directement l’itinéraire
+                            dans une carte (Google Maps, Mapbox, etc.) avec le trafic en temps réel.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <div class="small">
+                © <span id="year"></span> SmartSport Tour – Tous droits réservés.
+            </div>
+            <div class="small">
+                Prototype de recommandations intelligentes pour les touristes & supporters.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        const hotelsList = document.getElementById("hotels-list");
+        const restosList = document.getElementById("restos-list");
+        const transportSteps = document.getElementById("transport-steps");
+
+        function setHTML(element, html) {
+            element.innerHTML = html;
+        }
+
+        // Remplissage par défaut (Casablanca / Moyen / Amis)
+        function setDefault() {
+            setHTML(hotelsList, `
+        <li class="mb-3">
+          <div class="fw-semibold">Hotel Arena Stadium</div>
+          <div class="text-secondary">À 10 min en taxi du Stade International</div>
+          <div class="text-success">Budget : moyen · Wifi · Petit-déjeuner inclus</div>
+        </li>
+        <li class="mb-3">
+          <div class="fw-semibold">City Center Lodge</div>
+          <div class="text-secondary">Au cœur du centre-ville, accès facile aux restos</div>
+          <div class="text-primary">Budget : moyen + · Idéal pour sortir le soir</div>
+        </li>
+        <li>
+          <div class="fw-semibold">Supporters Hostel</div>
+          <div class="text-secondary">Ambiance supporters · Chambres partagées</div>
+          <div class="text-warning">Budget : économique · Parfait pour groupes</div>
+        </li>
+      `);
+
+            setHTML(restosList, `
+        <li class="mb-3">
+          <div class="fw-semibold">Le Comptoir du Stade</div>
+          <div class="text-secondary">Spécialités locales, ambiance d’avant-match</div>
+          <div class="text-success">€€ · À 5 min à pied du stade</div>
+        </li>
+        <li class="mb-3">
+          <div class="fw-semibold">Casa Food Corner</div>
+          <div class="text-secondary">Street-food, burgers, snacks rapides</div>
+          <div class="text-primary">€ · Idéal avant ou après le match</div>
+        </li>
+        <li>
+          <div class="fw-semibold">Terrasse Médina</div>
+          <div class="text-secondary">Vue panoramique · Cuisine traditionnelle</div>
+          <div class="text-warning">€€€ · Parfait pour une soirée plus calme</div>
+        </li>
+      `);
+
+            setHTML(transportSteps, `
+        <li class="mb-2">
+          <span class="fw-semibold text-light">Étape 1 :</span>
+          Départ de ton hôtel dans le centre de Casablanca.
+        </li>
+        <li class="mb-2">
+          <span class="fw-semibold text-light">Étape 2 :</span>
+          Prendre un taxi ou VTC (InDrive / autre) – temps estimé : 15–20 min.
+        </li>
+        <li class="mb-2">
+          <span class="fw-semibold text-light">Étape 3 :</span>
+          Option transports publics : bus direct “Stade” – 25–30 min.
+        </li>
+        <li>
+          <span class="fw-semibold text-light">Étape 4 :</span>
+          Arrivée au Stade International – itinéraire piéton sécurisé autour du stade.
+        </li>
+      `);
+        }
+
+        function generateRecommendations() {
+            const ville = document.getElementById("ville").value;
+            const budget = document.getElementById("budget").value;
+            const type = document.getElementById("type").value;
+
+            // Profil texte
+            const profilVilleMap = {
+                casablanca: "Casablanca",
+                rabat: "Rabat",
+                marrakech: "Marrakech"
+            };
+            document.getElementById("profil-ville").textContent = profilVilleMap[ville];
+
+            // Stade / remarque ville
+            if (ville === "casablanca") {
+                document.getElementById("profil-stade").textContent =
+                    "Proche du Stade International de Casablanca";
+            } else if (ville === "rabat") {
+                document.getElementById("profil-stade").textContent =
+                    "Accès rapide au Complexe Sportif de Rabat";
+            } else {
+                document.getElementById("profil-stade").textContent =
+                    "À proximité du Grand Stade de Marrakech";
+            }
+
+            // Type supporter
+            if (type === "solo") {
+                document.getElementById("profil-type").textContent = "Voyageur solo";
+                document.getElementById("profil-interets").textContent =
+                    "Football, exploration urbaine";
+                document.getElementById("profil-plus").textContent =
+                    "Flexibilité, déplacements rapides";
+                document.getElementById("profil-duree").textContent = "Séjour 2–4 jours";
+            } else if (type === "famille") {
+                document.getElementById("profil-type").textContent = "Famille";
+                document.getElementById("profil-interets").textContent =
+                    "Football, activités familiales";
+                document.getElementById("profil-plus").textContent =
+                    "Zones calmes, sécurité, espaces verts";
+                document.getElementById("profil-duree").textContent = "Séjour 5–7 jours";
+            } else {
+                document.getElementById("profil-type").textContent = "Groupe d’amis";
+                document.getElementById("profil-interets").textContent =
+                    "Football, nightlife, gastronomie";
+                document.getElementById("profil-plus").textContent =
+                    "Sorties, ambiance supporters";
+                document.getElementById("profil-duree").textContent = "Séjour 3–5 jours";
+            }
+
+            // Budget
+            if (budget === "eco") {
+                document.getElementById("profil-budget").textContent = "Économique";
+                document.getElementById("profil-budget-note").textContent =
+                    "Focus sur les meilleurs plans au moindre coût";
+            } else if (budget === "eleve") {
+                document.getElementById("profil-budget").textContent = "Élevé / Premium";
+                document.getElementById("profil-budget-note").textContent =
+                    "Confort, prestations haut de gamme et accès privilégiés";
+            } else {
+                document.getElementById("profil-budget").textContent = "Moyen";
+                document.getElementById("profil-budget-note").textContent =
+                    "Équilibre entre confort et budget maîtrisé";
+            }
+
+            // Hôtels (simplifié par combinaisons principales)
+            if (ville === "marrakech" && budget === "eleve") {
+                setHTML(hotelsList, `
+          <li class="mb-3">
+            <div class="fw-semibold">Palace Atlas Marrakech</div>
+            <div class="text-secondary">Resort 5★ avec spa, proche du Grand Stade</div>
+            <div class="text-success">Budget : élevé · Idéal pour famille ou VIP</div>
+          </li>
+          <li class="mb-3">
+            <div class="fw-semibold">Riad Medina Luxe</div>
+            <div class="text-secondary">Riad traditionnel dans la médina</div>
+            <div class="text-warning">€€€ · Expérience premium marocaine</div>
+          </li>
+          <li>
+            <div class="fw-semibold">Stadium View Suites</div>
+            <div class="text-secondary">Suites avec vue sur le stade</div>
+            <div class="text-primary">Accès rapide jour de match</div>
+          </li>
+        `);
+            } else if (ville === "rabat" && budget === "eco") {
+                setHTML(hotelsList, `
+          <li class="mb-3">
+            <div class="fw-semibold">Rabat Supporters Hostel</div>
+            <div class="text-secondary">Auberge conviviale près de la gare</div>
+            <div class="text-success">€ · Parfait pour groupes de supporters</div>
+          </li>
+          <li class="mb-3">
+            <div class="fw-semibold">Medina Budget Inn</div>
+            <div class="text-secondary">Petites chambres simples, très bien placées</div>
+            <div class="text-warning">€ · Solution ultra économique</div>
+          </li>
+          <li>
+            <div class="fw-semibold">Green Park Hotel</div>
+            <div class="text-secondary">Proche d’un parc pour familles</div>
+            <div class="text-primary">€€ · Bon compromis prix / confort</div>
+          </li>
+        `);
+            } else {
+                // par défaut (toutes autres combinaisons)
+                setDefault();
+            }
+
+            // Restaurants : petite variation selon ville
+            if (ville === "casablanca") {
+                setHTML(restosList, `
+          <li class="mb-3">
+            <div class="fw-semibold">Le Comptoir du Stade</div>
+            <div class="text-secondary">Spécialités locales, ambiance d’avant-match</div>
+            <div class="text-success">€€ · À 5 min à pied du stade</div>
+          </li>
+          <li class="mb-3">
+            <div class="fw-semibold">Casa Food Corner</div>
+            <div class="text-secondary">Street-food, burgers, snacks rapides</div>
+            <div class="text-primary">€ · Idéal avant ou après le match</div>
+          </li>
+          <li>
+            <div class="fw-semibold">Terrasse Médina</div>
+            <div class="text-secondary">Vue panoramique · Cuisine traditionnelle</div>
+            <div class="text-warning">€€€ · Parfait pour une soirée plus calme</div>
+          </li>
+        `);
+            } else if (ville === "rabat") {
+                setHTML(restosList, `
+          <li class="mb-3">
+            <div class="fw-semibold">Grill du Complexe</div>
+            <div class="text-secondary">Restaurant à proximité du complexe sportif</div>
+            <div class="text-success">€€ · Rapide les jours de match</div>
+          </li>
+          <li class="mb-3">
+            <div class="fw-semibold">Rabat Street Bites</div>
+            <div class="text-secondary">Snacks, sandwichs et options végétariennes</div>
+            <div class="text-primary">€ · Idéal pour familles et groupes</div>
+          </li>
+          <li>
+            <div class="fw-semibold">Vue sur Bouregreg</div>
+            <div class="text-secondary">Restaurant avec vue sur le fleuve</div>
+            <div class="text-warning">€€€ · Pour une soirée plus posée</div>
+          </li>
+        `);
+            } else {
+                setHTML(restosList, `
+          <li class="mb-3">
+            <div class="fw-semibold">Tagine du Stade</div>
+            <div class="text-secondary">Cuisine marocaine authentique à deux pas du stade</div>
+            <div class="text-success">€€ · Parfait avant le coup d’envoi</div>
+          </li>
+          <li class="mb-3">
+            <div class="fw-semibold">Marrakech Snack Arena</div>
+            <div class="text-secondary">Snacks rapides, burgers, boissons fraîches</div>
+            <div class="text-primary">€ · Ambiance très supporters</div>
+          </li>
+          <li>
+            <div class="fw-semibold">Rooftop Koutoubia</div>
+            <div class="text-secondary">Vue sur la ville, idéal en fin de journée</div>
+            <div class="text-warning">€€€ · Expérience mémorable</div>
+          </li>
+        `);
+            }
+
+            // Transport & itinéraires selon ville
+            if (ville === "casablanca") {
+                setHTML(transportSteps, `
+          <li class="mb-2">
+            <span class="fw-semibold text-light">Étape 1 :</span>
+            Départ de ton hôtel dans le centre de Casablanca.
+          </li>
+          <li class="mb-2">
+            <span class="fw-semibold text-light">Étape 2 :</span>
+            Tram ou taxi vers la zone du Stade International.
+          </li>
+          <li class="mb-2">
+            <span class="fw-semibold text-light">Étape 3 :</span>
+            5–10 min à pied sur un parcours sécurisé supporters.
+          </li>
+          <li>
+            <span class="fw-semibold text-light">Étape 4 :</span>
+            Arrivée au stade, contrôle d’accès et orientation vers ta tribune.
+          </li>
+        `);
+            } else if (ville === "rabat") {
+                setHTML(transportSteps, `
+          <li class="mb-2">
+            <span class="fw-semibold text-light">Étape 1 :</span>
+            Départ depuis la zone centre-ville ou gare.
+          </li>
+          <li class="mb-2">
+            <span class="fw-semibold text-light">Étape 2 :</span>
+            Bus direct ou taxi collectif vers le Complexe Sportif.
+          </li>
+          <li class="mb-2">
+            <span class="fw-semibold text-light">Étape 3 :</span>
+            10 min de marche avec signalétique spéciale événements.
+          </li>
+          <li>
+            <span class="fw-semibold text-light">Étape 4 :</span>
+            Accès au stade et aux zones de fan zone à proximité.
+          </li>
+        `);
+            } else {
+                setHTML(transportSteps, `
+          <li class="mb-2">
+            <span class="fw-semibold text-light">Étape 1 :</span>
+            Départ depuis ton riad ou hôtel dans la médina de Marrakech.
+          </li>
+          <li class="mb-2">
+            <span class="fw-semibold text-light">Étape 2 :</span>
+            Taxi ou VTC jusqu’au Grand Stade de Marrakech (15–25 min).
+          </li>
+          <li class="mb-2">
+            <span class="fw-semibold text-light">Étape 3 :</span>
+            Dépose à l’entrée “Supporters” et contrôle de sécurité.
+          </li>
+          <li>
+            <span class="fw-semibold text-light">Étape 4 :</span>
+            Parcours piéton balisé jusqu’à ta porte d’accès.
+          </li>
+        `);
+            }
+        }
+
+        // Initialisation
+        setDefault();
+        document.getElementById("btn-generate").addEventListener("click", generateRecommendations);
+    </script>
+</body>
+
+</html>

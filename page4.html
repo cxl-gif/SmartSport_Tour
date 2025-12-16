@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Transport – SmartSport Tour</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #020617;
+            color: #e5e7eb;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .navbar {
+            background: rgba(5, 10, 30, 0.98);
+        }
+
+        .page-header {
+            padding-top: 90px;
+            padding-bottom: 30px;
+            background: radial-gradient(circle at top, #0369a1, #020617 55%);
+        }
+
+        .section-title {
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .transport-card {
+            background: #020617;
+            border-radius: 1rem;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+            padding: 1.1rem 1.2rem 1.3rem;
+            height: 100%;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .transport-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 55px rgba(0, 0, 0, 0.85);
+            border-color: #0ea5e9;
+        }
+
+        .badge-mode {
+            display: inline-block;
+            margin-top: 0.4rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+        }
+
+        .rating {
+            font-size: 0.9rem;
+            color: #fbbf24;
+        }
+
+        footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.25);
+            background: #020617;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="index.html">
+                SmartSport <span class="text-info">Tour</span>
+            </a>
+            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"><span class="text-light">≡</span></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="index.html#features">Fonctionnalités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="recommandations.html">Recommandations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="page2.html">Guides</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="page3.html">Hôtels & Food</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light active" href="page4.html">Transport</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <div class="section-title mb-2">Solutions de transport digitalisées</div>
+            <h1 class="page-title mb-2">Choisis ton mode de transport</h1>
+            <p class="text-secondary mb-3">
+                Taxi, VTC ou bus navette : sélectionne ton mode de transport pour voir les chauffeurs disponibles
+                ou les bus vers les stades.
+            </p>
+
+            <div class="row align-items-center g-2">
+                <div class="col-sm-4 col-12">
+                    <label for="modeSelect" class="form-label small text-secondary mb-1">Mode de transport</label>
+                    <select id="modeSelect" class="form-select form-select-sm bg-dark text-light border-secondary">
+                        <option value="taxi">Taxi / VTC</option>
+                        <option value="bus">Bus / navettes</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <!-- Bloc chauffeurs taxi/VTC -->
+            <section id="section-taxi">
+                <h2 class="h5 mb-3">Portfolio des chauffeurs</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="transport-card">
+                            <div class="d-flex justify-content-between mb-1">
+                                <h5 class="mb-0">Karim Taxi Stadium</h5>
+                                <span class="rating">★ 4,9</span>
+                            </div>
+                            <p class="small text-secondary mb-2">
+                                Chauffeur agréé, habitué aux jours de match. Connaît les accès rapides autour du stade.
+                            </p>
+                            <span class="badge-mode">Taxi officiel</span>
+                            <p class="small text-secondary mt-2 mb-1"><strong>Zones :</strong> Aéroport, centre-ville,
+                                stade principal.</p>
+                            <p class="small text-secondary mb-0"><strong>Contact :</strong> via appli SmartSport Tour
+                                ou WhatsApp.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="transport-card">
+                            <div class="d-flex justify-content-between mb-1">
+                                <h5 class="mb-0">Nadia VTC Premium</h5>
+                                <span class="rating">★ 4,8</span>
+                            </div>
+                            <p class="small text-secondary mb-2">
+                                Véhicule confortable pour 3–4 supporters, climatisé, parfait pour les trajets
+                                hôtel–stade.
+                            </p>
+                            <span class="badge-mode">VTC / InDrive</span>
+                            <p class="small text-secondary mt-2 mb-1"><strong>Zones :</strong> Casablanca & Rabat.</p>
+                            <p class="small text-secondary mb-0"><strong>Contact :</strong> réservation 100% digitale.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="transport-card">
+                            <div class="d-flex justify-content-between mb-1">
+                                <h5 class="mb-0">Supporters MiniVan</h5>
+                                <span class="rating">★ 5,0</span>
+                            </div>
+                            <p class="small text-secondary mb-2">
+                                Chauffeur avec mini‑van (8 places) pour groupes de supporters, trajet direct vers la
+                                fan zone.
+                            </p>
+                            <span class="badge-mode">Mini‑van supporters</span>
+                            <p class="small text-secondary mt-2 mb-1"><strong>Zones :</strong> Grands hôtels,
+                                fan‑zones, stades.</p>
+                            <p class="small text-secondary mb-0"><strong>Contact :</strong> réservation à l’avance
+                                recommandée.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bloc bus / navettes -->
+            <section id="section-bus" class="mt-4" style="display:none;">
+                <h2 class="h5 mb-3">Bus & navettes vers les stades</h2>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="transport-card">
+                            <h5 class="mb-1">Navette Stade Ligne A</h5>
+                            <p class="small text-secondary mb-2">
+                                Bus spécial jour de match reliant le centre‑ville au Stade International.
+                            </p>
+                            <span class="badge-mode">Bus navette</span>
+                            <p class="small text-secondary mt-2 mb-1"><strong>Départ :</strong> Place centrale,
+                                toutes les 20 min.</p>
+                            <p class="small text-secondary mb-0"><strong>Horaires :</strong> 3h avant le match,
+                                2h après.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="transport-card">
+                            <h5 class="mb-1">Ligne B – Aéroport & Stade</h5>
+                            <p class="small text-secondary mb-2">
+                                Liaison directe aéroport ↔ stade les jours de grands événements.
+                            </p>
+                            <span class="badge-mode">Bus direct</span>
+                            <p class="small text-secondary mt-2 mb-1"><strong>Départ :</strong> Terminal Arrivées.</p>
+                            <p class="small text-secondary mb-0"><strong>Horaires :</strong> toutes les 30 min.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="transport-card">
+                            <h5 class="mb-1">Navette Fan Zone</h5>
+                            <p class="small text-secondary mb-2">
+                                Bus circulaire reliant les principales fan‑zones au stade et au centre‑ville.
+                            </p>
+                            <span class="badge-mode">Circuit supporters</span>
+                            <p class="small text-secondary mt-2 mb-1"><strong>Arrêts clés :</strong> Fan zone
+                                principale, vieille ville, stade.</p>
+                            <p class="small text-secondary mb-0"><strong>Horaires :</strong> en continu de 14h à 1h.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="py-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <div class="small">
+                © <span id="year"></span> SmartSport Tour – Tous droits réservés.
+            </div>
+            <div class="small">
+                Transport optimisé pour rejoindre les stades et fan‑zones en toute sécurité.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        const modeSelect = document.getElementById("modeSelect");
+        const sectionTaxi = document.getElementById("section-taxi");
+        const sectionBus = document.getElementById("section-bus");
+
+        function updateMode() {
+            const value = modeSelect.value;
+            if (value === "bus") {
+                sectionTaxi.style.display = "none";
+                sectionBus.style.display = "";
+            } else {
+                sectionTaxi.style.display = "";
+                sectionBus.style.display = "none";
+            }
+        }
+
+        modeSelect.addEventListener("change", updateMode);
+        updateMode();
+    </script>
+</body>
+
+</html>

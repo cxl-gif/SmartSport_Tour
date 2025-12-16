@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hôtels & Restaurants – SmartSport Tour</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #020617;
+            color: #e5e7eb;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .navbar {
+            background: rgba(5, 10, 30, 0.98);
+        }
+
+        .page-header {
+            padding-top: 90px;
+            padding-bottom: 30px;
+            background: radial-gradient(circle at top, #15803d, #020617 55%);
+        }
+
+        .section-title {
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .filter-bar {
+            margin-top: 18px;
+        }
+
+        .place-card {
+            background: #020617;
+            border-radius: 1rem;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65);
+            padding: 1.1rem 1.2rem 1.3rem;
+            height: 100%;
+            transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+        }
+
+        .place-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 55px rgba(0, 0, 0, 0.85);
+            border-color: #22c55e;
+        }
+
+        .place-type {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #9ca3af;
+        }
+
+        .badge-taste {
+            display: inline-block;
+            margin-top: 0.4rem;
+            padding: 0.2rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            background: rgba(34, 197, 94, 0.12);
+            color: #4ade80;
+        }
+
+        .rating {
+            font-size: 0.9rem;
+            color: #fbbf24;
+        }
+
+        footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.25);
+            background: #020617;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="index.html">
+                SmartSport <span class="text-success">Tour</span>
+            </a>
+            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"><span class="text-light">≡</span></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="index.html#features">Fonctionnalités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="recommandations.html">Recommandations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="page2.html">Guides</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light active" href="page3.html">Hôtels & Food</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <div class="section-title mb-2">Séjour & gastronomie</div>
+            <h1 class="page-title mb-2">Hôtels & restaurants pour supporters</h1>
+            <p class="text-secondary mb-3">
+                Choisis le type de cuisine que tu veux manger : nous filtrons les restaurants adaptés, tout en
+                affichant les hôtels proches des stades.
+            </p>
+
+            <div class="row filter-bar align-items-center g-2">
+                <div class="col-sm-4 col-12">
+                    <label for="tasteSelect" class="form-label small text-secondary mb-1">Goût / type de cuisine</label>
+                    <select id="tasteSelect" class="form-select form-select-sm bg-dark text-light border-secondary">
+                        <option value="tous">Tous les goûts</option>
+                        <option value="marocain">Marocain traditionnel</option>
+                        <option value="fastfood">Fast‑food & burgers</option>
+                        <option value="asian">Asiatique / ramen</option>
+                        <option value="vegan">Végétarien / healthy</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row g-4" id="placesGrid">
+                <!-- Hôtels : toujours visibles (data-taste="tous") -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="place-card" data-type="hotel" data-taste="tous">
+                        <div class="place-type">Hôtel</div>
+                        <h5 class="mt-1 mb-1">Hotel Arena Stadium</h5>
+                        <p class="small text-secondary mb-2">
+                            À 10 minutes du stade principal, parfait pour les groupes de supporters.
+                        </p>
+                        <p class="small text-secondary mb-1"><strong>Ville :</strong> Casablanca</p>
+                        <p class="rating mb-0">★ 4,6 &nbsp;· Budget moyen</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="place-card" data-type="hotel" data-taste="tous">
+                        <div class="place-type">Hôtel</div>
+                        <h5 class="mt-1 mb-1">City Center Lodge</h5>
+                        <p class="small text-secondary mb-2">
+                            Au cœur du centre‑ville, accès rapide aux restaurants et aux transports publics.
+                        </p>
+                        <p class="small text-secondary mb-1"><strong>Ville :</strong> Rabat</p>
+                        <p class="rating mb-0">★ 4,4 &nbsp;· Confort & proximité</p>
+                    </div>
+                </div>
+
+                <!-- Restaurants filtrables par goût -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="place-card" data-type="restaurant" data-taste="marocain">
+                        <div class="place-type">Restaurant</div>
+                        <h5 class="mt-1 mb-1">Terrasse Médina</h5>
+                        <p class="small text-secondary mb-2">
+                            Cuisine marocaine traditionnelle avec vue, idéale avant ou après le match.
+                        </p>
+                        <span class="badge-taste">Marocain traditionnel</span>
+                        <p class="rating mt-2 mb-0">★ 4,8</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="place-card" data-type="restaurant" data-taste="fastfood">
+                        <div class="place-type">Restaurant</div>
+                        <h5 class="mt-1 mb-1">Casa Food Corner</h5>
+                        <p class="small text-secondary mb-2">
+                            Burgers, wings et snacks rapides pour les supporters pressés.
+                        </p>
+                        <span class="badge-taste">Fast‑food & burgers</span>
+                        <p class="rating mt-2 mb-0">★ 4,3</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="place-card" data-type="restaurant" data-taste="asian">
+                        <div class="place-type">Restaurant</div>
+                        <h5 class="mt-1 mb-1">Ramen Stadium Bar</h5>
+                        <p class="small text-secondary mb-2">
+                            Ramen, nouilles et bowls asiatiques à quelques minutes du stade.
+                        </p>
+                        <span class="badge-taste">Asiatique / ramen</span>
+                        <p class="rating mt-2 mb-0">★ 4,7</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="place-card" data-type="restaurant" data-taste="vegan">
+                        <div class="place-type">Restaurant</div>
+                        <h5 class="mt-1 mb-1">Green Match Café</h5>
+                        <p class="small text-secondary mb-2">
+                            Bowls, options vegan et jus frais pour un avant‑match plus healthy.
+                        </p>
+                        <span class="badge-taste">Végétarien / healthy</span>
+                        <p class="rating mt-2 mb-0">★ 4,5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <div class="small">
+                © <span id="year"></span> SmartSport Tour – Tous droits réservés.
+            </div>
+            <div class="small">
+                Séjour complet : hôtel, food & accès stade pour les grands événements sportifs.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        const tasteSelect = document.getElementById("tasteSelect");
+        const cards = Array.from(document.querySelectorAll(".place-card"));
+
+        function applyFilter() {
+            const value = tasteSelect.value;
+            cards.forEach(card => {
+                const taste = card.dataset.taste;
+                const type = card.dataset.type;
+
+                // Les hôtels sont toujours visibles, seuls les restaurants sont filtrés
+                if (type === "hotel") {
+                    card.style.display = "";
+                    return;
+                }
+
+                if (value === "tous" || taste === value) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        tasteSelect.addEventListener("change", applyFilter);
+        applyFilter();
+    </script>
+</body>
+
+</html>

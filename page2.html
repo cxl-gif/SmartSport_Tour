@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Guides SmartSport Tour</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #020617;
+            color: #e5e7eb;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .navbar {
+            background: rgba(5, 10, 30, 0.98);
+        }
+
+        .page-header {
+            padding-top: 90px;
+            padding-bottom: 30px;
+            background: radial-gradient(circle at top, #1d4ed8, #020617 55%);
+        }
+
+        .section-title {
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .guide-card {
+            background: #0b1220;
+            border-radius: 1rem;
+            border: 1px solid rgba(148, 163, 184, 0.25);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            height: 100%;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 26px 60px rgba(0, 0, 0, 0.8);
+            border-color: #3b82f6;
+        }
+
+        .guide-avatar {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .badge-sport {
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            border-radius: 999px;
+            padding: 0.2rem 0.75rem;
+            font-size: 0.75rem;
+        }
+
+        .badge-lang {
+            background: rgba(34, 197, 94, 0.12);
+            color: #4ade80;
+            border-radius: 999px;
+            padding: 0.15rem 0.6rem;
+            font-size: 0.7rem;
+        }
+
+        .rating {
+            color: #fbbf24;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.25);
+            background: #020617;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="index.html">
+                SmartSport <span class="text-primary">Tour</span>
+            </a>
+            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"><span class="text-light">≡</span></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="index.html#features">Fonctionnalités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="recommandations.html">Recommandations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light active" href="page2.html">Guides</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <div class="section-title mb-2">Portfolio de guides</div>
+            <h1 class="page-title mb-2">Guides SmartSport Tour</h1>
+            <p class="text-secondary mb-0">
+                Des experts locaux pour accompagner les supporters : visites de ville, trajet vers les stades,
+                conseils pratiques et expériences authentiques.
+            </p>
+        </div>
+    </header>
+
+    <main class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="guide-card">
+                        <img src="people-face-avatar-icon-cartoon-character-png.webp" alt="Guide sportif"
+                            class="guide-avatar">
+                        <div class="p-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <h5 class="mb-0">Youssef El Mansouri</h5>
+                                <span class="rating">★ 4.9</span>
+                            </div>
+                            <p class="small text-secondary mb-2">Guide local à Casablanca, spécialiste des parcours
+                                autour des grands stades et des quartiers populaires.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-2">
+                                <span class="badge-sport">Football & Fan zones</span>
+                                <span class="badge-lang">Français</span>
+                                <span class="badge-lang">Anglais</span>
+                            </div>
+                            <p class="small text-secondary mb-1"><strong>Ville :</strong> Casablanca</p>
+                            <p class="small text-secondary mb-0"><strong>Services :</strong> accueil à l’aéroport,
+                                transfert vers hôtel, visites express avant-match.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="guide-card">
+                        <img src="people-face-avatar-icon-cartoon-character-png.webp" alt="Guide culinaire"
+                            class="guide-avatar">
+                        <div class="p-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <h5 class="mb-0">Salma Benali</h5>
+                                <span class="rating">★ 4.8</span>
+                            </div>
+                            <p class="small text-secondary mb-2">Experte en gastronomie marocaine, elle combine
+                                découverte culinaire et itinéraires vers les stades.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-2">
+                                <span class="badge-sport">Food & Culture</span>
+                                <span class="badge-lang">Français</span>
+                                <span class="badge-lang">Anglais</span>
+                                <span class="badge-lang">Espagnol</span>
+                            </div>
+                            <p class="small text-secondary mb-1"><strong>Ville :</strong> Rabat & Salé</p>
+                            <p class="small text-secondary mb-0"><strong>Services :</strong> circuits gastronomiques,
+                                réservations de restaurants, accompagnement jour de match.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="guide-card">
+                        <img src="people-face-avatar-icon-cartoon-character-png.webp" alt="Guide nightlife"
+                            class="guide-avatar">
+                        <div class="p-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <h5 class="mb-0">Amine & Sara</h5>
+                                <span class="rating">★ 5.0</span>
+                            </div>
+                            <p class="small text-secondary mb-2">Duo de guides pour groupes de supporters, spécialistes
+                                nightlife, fan zones et after-match.</p>
+                            <div class="d-flex flex-wrap gap-2 mb-2">
+                                <span class="badge-sport">Nightlife & Fan groups</span>
+                                <span class="badge-lang">Français</span>
+                                <span class="badge-lang">Anglais</span>
+                            </div>
+                            <p class="small text-secondary mb-1"><strong>Ville :</strong> Marrakech</p>
+                            <p class="small text-secondary mb-0"><strong>Services :</strong> organisation de soirées
+                                supporters, transferts privés, accompagnement VIP.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <div class="small">
+                © <span id="year"></span> SmartSport Tour – Tous droits réservés.
+            </div>
+            <div class="small">
+                Réseau de guides officiels et partenaires locaux pour les grands événements sportifs.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>

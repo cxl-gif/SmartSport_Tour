@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>SmartSport Tour</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background-color: #0b1020;
+            color: #f5f5f5;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .navbar {
+            background: rgba(5, 10, 30, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(circle at top, #1a2a6c, #0b1020 55%);
+            color: #fff;
+            padding-top: 80px;
+            padding-bottom: 60px;
+        }
+
+        .hero-title {
+            font-size: 2.6rem;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            color: #d0d3ff;
+        }
+
+        .badge-event {
+            background: linear-gradient(90deg, #ffb347, #ffcc33);
+            color: #1b1b1b;
+            font-weight: 600;
+        }
+
+        .feature-card {
+            background: #151a2e;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+            border-color: #3b82f6;
+        }
+
+        .icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            background: radial-gradient(circle at 30% 0%, #3b82f6, #1e293b);
+            color: #e5e7eb;
+        }
+
+        .section-title {
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        .gradient-text {
+            background: linear-gradient(120deg, #3b82f6, #22c55e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .pill {
+            border-radius: 999px;
+            padding: 0.18rem 0.75rem;
+            font-size: 0.82rem;
+            border: 1px solid rgba(148, 163, 184, 0.5);
+            color: #e5e7eb;
+        }
+
+        footer {
+            border-top: 1px solid rgba(148, 163, 184, 0.25);
+            background: #050816;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white" href="index.html">
+                SmartSport <span class="text-primary">Tour</span>
+            </a>
+            <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon">
+                    <span class="text-light">≡</span>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav gap-2">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#features">Fonctionnalités</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="recommandations.html">Recommandations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="row align-items-center g-4">
+                <div class="col-lg-6">
+                    <span class="badge badge-event mb-3">
+                        De la CAN 2025 à la Coupe du Monde 2030
+                    </span>
+                    <h1 class="hero-title mb-3">
+                        La plateforme intelligente des
+                        <span class="gradient-text">touristes & supporters sportifs</span>
+                    </h1>
+                    <p class="hero-subtitle mb-4">
+                        SmartSport Tour centralise les informations essentielles de voyage et
+                        utilise l’intelligence artificielle pour simplifier ton séjour :
+                        hébergement, restauration, transport et parcours vers les stades.
+                    </p>
+                    <div class="d-flex flex-wrap align-items-center gap-2 mb-4">
+                        <span class="pill">Guides touristiques intelligents</span>
+                        <span class="pill">Recommandations IA</span>
+                        <span class="pill">Géolocalisation</span>
+                    </div>
+                    <a href="#features" class="btn btn-primary btn-lg me-2">
+                        Découvrir les fonctionnalités
+                    </a>
+                    <a href="recommandations.html" class="btn btn-outline-light btn-lg">
+                        Voir les recommandations
+                    </a>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="p-4 rounded-4"
+                        style="background: rgba(15,23,42,0.85); border:1px solid rgba(148,163,184,0.35);">
+                        <h5 class="mb-3 text-uppercase text-secondary" style="letter-spacing: .06em; font-size:.8rem;">
+                            Aperçu intelligent
+                        </h5>
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="small text-secondary">Proposition</div>
+                                <div class="fw-semibold">Ville hôte recommandée</div>
+                                <div class="text-primary small">Casablanca · Rabat · Marrakech</div>
+                            </div>
+                            <div class="col-6">
+                                <div class="small text-secondary">Prochain match</div>
+                                <div class="fw-semibold">Stade International</div>
+                                <div class="text-success small">Itinéraire prêt en 1 clic</div>
+                            </div>
+                        </div>
+                        <hr class="border-secondary my-3" />
+                        <div class="small text-secondary mb-1">Suggestion rapide</div>
+                        <p class="mb-0">
+                            “En fonction de ta localisation actuelle, nous avons trouvé
+                            <span class="text-primary fw-semibold">3 hôtels</span>,
+                            <span class="text-success fw-semibold">5 restaurants</span> et un
+                            itinéraire optimisé vers ton prochain stade.”
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fonctionnalités -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title mb-2">Ce que SmartSport Tour propose</h2>
+                <p class="text-secondary">
+                    Une plateforme unique pour tout organiser autour des grands événements sportifs.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <!-- 4 cartes comme avant -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card p-4" data-feature="guides" role="button"
+                        aria-label="Guides touristiques intelligents">
+                        <div class="icon-circle mb-3">🗺</div>
+                        <h5 class="mb-2">Guides touristiques intelligents</h5>
+                        <p class="small text-secondary mb-3">
+                            Des guides personnalisés selon ta localisation : monuments, musées,
+                            plages, quartiers animés, culture locale et activités autour des stades.
+                        </p>
+                        <ul class="small text-secondary mb-0 ps-3">
+                            <li>Basé sur ta position</li>
+                            <li>Filtres par centres d’intérêt</li>
+                            <li>Infos pratiques à jour</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card p-4" data-feature="hotels" role="button"
+                        aria-label="Recommandations d’hôtels et restaurants">
+                        <div class="icon-circle mb-3">🏨</div>
+                        <h5 class="mb-2">Recommandations d’hôtels & restaurants</h5>
+                        <p class="small text-secondary mb-3">
+                            Des suggestions intelligentes d’hébergement et de restauration,
+                            adaptées à ton budget, ton style de voyage et ta proximité aux stades.
+                        </p>
+                        <ul class="small text-secondary mb-0 ps-3">
+                            <li>Classement par budget et confort</li>
+                            <li>Cuisine locale ou internationale</li>
+                            <li>Proche des principaux stades</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card p-4" data-feature="transport" role="button"
+                        aria-label="Solutions de transport digitalisées">
+                        <div class="icon-circle mb-3">🚖</div>
+                        <h5 class="mb-2">Solutions de transport digitalisées</h5>
+                        <p class="small text-secondary mb-3">
+                            Toutes les options pour te déplacer facilement : taxis, VTC, InDrive,
+                            ainsi que les transports publics disponibles dans la ville hôte.
+                        </p>
+                        <ul class="small text-secondary mb-0 ps-3">
+                            <li>Intégration des applis de VTC</li>
+                            <li>Infos sur bus, tram, métro</li>
+                            <li>Points de départ recommandés</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card p-4" data-feature="itineraire" role="button"
+                        aria-label="Itinéraires intelligents vers les stades">
+                        <div class="icon-circle mb-3">🧭</div>
+                        <h5 class="mb-2">Itinéraires intelligents vers les stades</h5>
+                        <p class="small text-secondary mb-3">
+                            Des parcours optimisés vers les stades et sites touristiques en tenant
+                            compte du temps, du trafic et de ton mode de transport préféré.
+                        </p>
+                        <ul class="small text-secondary mb-0 ps-3">
+                            <li>Point de départ : ta position actuelle</li>
+                            <li>Temps de trajet estimé</li>
+                            <li>Alternative rapide ou économique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal détail fonctionnalité -->
+    <div class="modal fade" id="featureModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-dark text-light border-0" style="background:#0f172a;">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="featureModalLabel"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body" id="featureModalBody"></div>
+                <div class="modal-footer border-0">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact / Footer -->
+    <footer id="contact" class="py-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <div class="small">
+                © <span id="year"></span> SmartSport Tour – Tous droits réservés.
+            </div>
+            <div class="small">
+                Plateforme évolutive pour les grands événements sportifs internationaux.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        const featureDetails = {
+            guides: {
+                title: "Guides touristiques intelligents",
+                body: `
+                    <p class="text-secondary mb-3">
+                        Des guides personnalisés selon ta localisation : monuments, musées,
+                        plages, quartiers animés, culture locale et activités autour des stades.
+                    </p>
+                    <ul class="text-secondary">
+                        <li>Basé sur ta position</li>
+                        <li>Filtres par centres d’intérêt</li>
+                        <li>Infos pratiques à jour</li>
+                    </ul>
+                `
+            },
+            hotels: {
+                title: "Recommandations d’hôtels & restaurants",
+                body: `
+                    <p class="text-secondary mb-3">
+                        Des suggestions intelligentes d’hébergement et de restauration,
+                        adaptées à ton budget, ton style de voyage et ta proximité aux stades.
+                    </p>
+                    <ul class="text-secondary">
+                        <li>Classement par budget et confort</li>
+                        <li>Cuisine locale ou internationale</li>
+                        <li>Proche des principaux stades</li>
+                    </ul>
+                `
+            },
+            transport: {
+                title: "Solutions de transport digitalisées",
+                body: `
+                    <p class="text-secondary mb-3">
+                        Toutes les options pour te déplacer facilement : taxis, VTC, InDrive,
+                        ainsi que les transports publics disponibles dans la ville hôte.
+                    </p>
+                    <ul class="text-secondary">
+                        <li>Intégration des applis de VTC</li>
+                        <li>Infos sur bus, tram, métro</li>
+                        <li>Points de départ recommandés</li>
+                    </ul>
+                `
+            },
+            itineraire: {
+                title: "Itinéraires intelligents vers les stades",
+                body: `
+                    <p class="text-secondary mb-3">
+                        Des parcours optimisés vers les stades et sites touristiques en tenant
+                        compte du temps, du trafic et de ton mode de transport préféré.
+                    </p>
+                    <ul class="text-secondary">
+                        <li>Point de départ : ta position actuelle</li>
+                        <li>Temps de trajet estimé</li>
+                        <li>Alternative rapide ou économique</li>
+                    </ul>
+                `
+            }
+        };
+
+        const modalElement = document.getElementById("featureModal");
+        const modalTitle = document.getElementById("featureModalLabel");
+        const modalBody = document.getElementById("featureModalBody");
+        const modal = new bootstrap.Modal(modalElement);
+
+        document.querySelectorAll(".feature-card").forEach(card => {
+            card.addEventListener("click", () => {
+                const key = card.dataset.feature;
+
+                // "Guides" -> page portfolio
+                if (key === "guides") {
+                    window.location.href = "page2.html";
+                    return;
+                }
+
+                // "Hôtels & restaurants" -> page dédiée aux hôtels / food
+                if (key === "hotels") {
+                    window.location.href = "page3.html";
+                    return;
+                }
+
+                // "Transport" -> page dédiée aux options de transport
+                if (key === "transport") {
+                    window.location.href = "page4.html";
+                    return;
+                }
+
+                // "Itinéraires" -> page dédiée aux parcours optimisés
+                if (key === "itineraire") {
+                    window.location.href = "page5.html";
+                    return;
+                }
+
+                const detail = featureDetails[key];
+                if (!detail) return;
+                modalTitle.textContent = detail.title;
+                modalBody.innerHTML = detail.body;
+                modal.show();
+            });
+        });
+    </script>
+</body>
+
+</html>
